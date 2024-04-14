@@ -73,6 +73,11 @@ input, button {
     cursor: pointer;
     background-color: white;
     font-size: 15px;
+    transition: 0.3s;
+}
+
+#new-task #new-task-submit:hover {
+    background-color: var(--clr-background-light);
 }
 
 #tasks {
@@ -121,6 +126,11 @@ input, button {
 .actions button {
    cursor: pointer;
    font-size: 20px;
+   transition: 0.3s;
+}
+
+.actions button:hover {
+    color: var(--clr-background-light);
 }
 
 .edit, .delete {
@@ -140,5 +150,6 @@ input, button {
     border-radius: 10px;
     width: 15%;
     text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
