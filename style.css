@@ -1,0 +1,144 @@
+:root {
+    --font-main: sans-serif;
+    --clr-background-dark: rgb(23, 113, 121);
+    --clr-background-light: rgb(151, 194, 186);
+}
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgb(151, 194, 186);
+    background: radial-gradient(circle, rgba(151, 194, 186, 1) 0%, rgba(23, 113, 121, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.container {
+    width: 40%;
+    min-width: 450px;
+    padding: 30px 40px;
+}
+
+#new-task {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+#new-task #new-task-input {
+    width: 70%;
+    height: 45px;
+    font-family: var(--font-main);
+    font-size: 15px;
+    border: 2px solid var(--clr-background-dark);
+    padding: 12px;
+    font-weight: 500;
+    color: var(--clr-background-dark);
+    border-radius: 5px;
+}
+
+#new-task #new-task-input:focus {
+    border-color: var(--clr-background-dark);
+}
+
+#new-task #new-task-input::placeholder {
+    color: var(--clr-background-light);
+}
+
+#new-task #new-task-submit {
+    float: right;
+    border-radius: 5px;
+    width: 20%;
+    height: 45px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    border: 2px solid var(--clr-background-dark);
+    color: var(--clr-background-dark);
+    cursor: pointer;
+    background-color: white;
+    font-size: 15px;
+}
+
+#tasks {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.task {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1 1 0%;
+}
+
+.text {
+    color: var(--clr-background-dark);
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--font-main);
+    width: 75%;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.text:not(:read-only) {
+    color: var(--clr-background-light);
+}
+
+.actions {
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+}
+.actions button {
+   cursor: pointer;
+   font-size: 20px;
+}
+
+.edit, .delete {
+    color: var(--clr-background-dark);
+}
+
+#count{
+    color: var(--clr-background-dark);
+    background-color: white;
+    font-size: 15px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    width: 15%;
+    text-align: center;
+}
+
