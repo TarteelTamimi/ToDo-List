@@ -143,7 +143,7 @@ input, button {
     font-size: 15px;
     font-family: var(--font-main);
     font-weight: 500;
-    position: absolute;
+    position: fixed;
     right: 35px;
     bottom: 35px;
     padding: 10px 5px;
