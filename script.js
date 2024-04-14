@@ -68,6 +68,11 @@ window.addEventListener('load', () => {
             saveTasks();
         });
 
+        // TODO : Add to local storage
+        task_content_el.addEventListener('click', () => {
+            task_input_el.classList.toggle('done');
+        });
+
         return task_el;
     }
 
