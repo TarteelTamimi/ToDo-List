@@ -16,21 +16,33 @@ async function fetchTasks() {
 
 async function loadFetchedTasks() {
     const fetchedTaskObj = await fetchTasks();
-    const fetchedTask = [];
+    const fetchedTask_comp = [];
+    const fetchedTask_notComp = [];
 
     for (let i = 0; i < fetchedTaskObj.todos.length; i++) {
-        fetchedTask[i] = fetchedTaskObj.todos[i].todo;
+        if(fetchedTaskObj.todos[i].completed) {
+            fetchedTask_comp.push(fetchedTaskObj.todos[i].todo);
+        } else {
+            fetchedTask_notComp.push(fetchedTaskObj.todos[i].todo);
+        }
     }
 
-    for (let i = 0; i < fetchedTask.length; i++) {
-        const task_el = createTaskElement(fetchedTask[i]);
+    for (let i = 0; i < fetchedTask_notComp.length; i++) {
+        const task_el = createTaskElement(fetchedTask_notComp[i]);
         list_el.appendChild(task_el);
     }
+    console.log(fetchedTask_comp)
+    console.log(fetchedTask_notComp)
 
+    for (let i = 0; i < fetchedTask_comp.length; i++) {
+        const task_el = createTaskElement(fetchedTask_comp[i], true);
+        list_el.appendChild(task_el);
+    }
+    
     saveTasks();
 }
 
-function createTaskElement(taskText) {
+function createTaskElement(taskText, isComplete=false) {
     const task_el = document.createElement("div");
     task_el.classList.add("task");
 
@@ -78,6 +90,10 @@ function createTaskElement(taskText) {
     task_content_el.addEventListener('click', () => {
         task_input_el.classList.toggle('done');
     });
+
+    if(isComplete) {
+        task_input_el.classList.toggle('done');
+    }
 
     return task_el;
 }
