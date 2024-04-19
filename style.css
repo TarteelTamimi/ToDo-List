@@ -168,3 +168,32 @@ input, button {
     text-decoration: line-through;
 }
 
+@media(max-width: 450px) {
+    .container {
+        width: 100%;
+        min-width: 230px;
+        padding: 15px 15px;
+    }
+
+    #new-task {
+        padding: 20px 25px;
+    }
+
+    .actions {
+        display: flex;
+        width: 25%;
+        justify-content: space-between;
+    }
+
+    #count{
+        font-size: 14px;
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        padding: 10px 5px;
+        width: 20%;
+        text-align: center;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
