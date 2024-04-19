@@ -132,11 +132,6 @@ window.addEventListener('load', () => {
 
         const task = input.value;
 
-        if (!task) {
-            alert("Please add a task");
-            return;
-        }
-
         const task_el = createTaskElement(task);
 
         list_el.appendChild(task_el);

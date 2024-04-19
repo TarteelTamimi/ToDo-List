@@ -80,6 +80,10 @@ input, button {
     background-color: var(--clr-background-light);
 }
 
+#new-task #new-task-submit:disabled {
+    pointer-events: none;
+}
+
 #tasks {
     margin-top: 30px;
     width: 100%;
