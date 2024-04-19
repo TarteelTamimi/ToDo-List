@@ -44,7 +44,7 @@ async function loadFetchedTasks() {
 }
 
 function createTaskElement(taskText, isComplete = false) {
-    const task_el = document.createElement("div");
+    const task_el = document.createElement("li");
     task_el.classList.add("task");
 
     const task_content_el = document.createElement("div");
