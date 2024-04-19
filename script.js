@@ -2,6 +2,7 @@ const form = document.querySelector("#new-task");
 const input = document.querySelector("#new-task-input");
 const list_el = document.querySelector("#tasks");
 const count_el = document.querySelector("#count");
+const add_button = document.querySelector("#new-task-submit");
 
 if (!localStorage.getItem('functionCalled')) {
     loadFetchedTasks();
@@ -124,6 +125,7 @@ function saveTasks() {
 
 window.addEventListener('load', () => {
     loadTasks();
+    add_button.disabled = true;
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -140,8 +142,15 @@ window.addEventListener('load', () => {
         list_el.appendChild(task_el);
 
         input.value = "";
+        add_button.disabled = true;
         saveTasks();
     })
+
+    input.addEventListener('input', () => {
+        if (input.value.trim() !== "") {
+            add_button.disabled = false;
+        }
+    });
 
     async function loadTasks() {
         const generatedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
