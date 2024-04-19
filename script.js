@@ -20,7 +20,7 @@ async function loadFetchedTasks() {
     const fetchedTask_notComp = [];
 
     for (let i = 0; i < fetchedTaskObj.todos.length; i++) {
-        if(fetchedTaskObj.todos[i].completed) {
+        if (fetchedTaskObj.todos[i].completed) {
             fetchedTask_comp.push(fetchedTaskObj.todos[i].todo);
         } else {
             fetchedTask_notComp.push(fetchedTaskObj.todos[i].todo);
@@ -38,11 +38,11 @@ async function loadFetchedTasks() {
         const task_el = createTaskElement(fetchedTask_comp[i], true);
         list_el.appendChild(task_el);
     }
-    
+
     saveTasks();
 }
 
-function createTaskElement(taskText, isComplete=false) {
+function createTaskElement(taskText, isComplete = false) {
     const task_el = document.createElement("div");
     task_el.classList.add("task");
 
@@ -82,8 +82,11 @@ function createTaskElement(taskText, isComplete=false) {
     });
 
     task_delete_el.addEventListener('click', () => {
-        list_el.removeChild(task_el);
-        saveTasks();
+        const isConfirmed = confirm("Are you sure you want to delete this task?");
+        if (isConfirmed) {
+            list_el.removeChild(task_el);
+            saveTasks();
+        }
     });
 
     // TODO : Add to local storage
@@ -91,7 +94,7 @@ function createTaskElement(taskText, isComplete=false) {
         task_input_el.classList.toggle('done');
     });
 
-    if(isComplete) {
+    if (isComplete) {
         task_input_el.classList.toggle('done');
     }
 
